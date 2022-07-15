@@ -39,8 +39,7 @@ scrape_configs:
   - job_name: 'prometheus'
     static_configs:
       - targets: ['172.17.0.1:9090']
-      
-```{{copy}}
+```{{copy}}      
 
 </pre>
 
