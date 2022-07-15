@@ -22,7 +22,9 @@ Let's start this initial Prometheus setup for now.
 
 Now, we will prepare configuration files for all Prometheus instances.
 
-Click `Copy To Editor` for each config to propagate the configs to each file.
+Click on the box and it will get copied
+
+Switch on to the Editor tab and make a prometheus0_eu1.yml file and paste the above code in it.
 
 First, for the EU Prometheus server that scrapes itself:
 
@@ -43,7 +45,9 @@ scrape_configs:
 
 For the second cluster we set two replicas:
 
-<pre class="file" data-filename="prometheus0_us1.yml" data-target="replace">
+Make a prometheus0_us1.yml file and paste the above code in it.
+
+```
 global:
   scrape_interval: 15s
   evaluation_interval: 15s
@@ -55,9 +59,12 @@ scrape_configs:
   - job_name: 'prometheus'
     static_configs:
       - targets: ['172.17.0.1:9091','172.17.0.1:9092']
-</pre>
+```{{copy}}
 
-<pre class="file" data-filename="prometheus1_us1.yml" data-target="replace">
+
+Make a prometheus1_us1.yml file and paste the above code in it.
+
+```
 global:
   scrape_interval: 15s
   evaluation_interval: 15s
@@ -69,7 +76,7 @@ scrape_configs:
   - job_name: 'prometheus'
     static_configs:
       - targets: ['172.17.0.1:9091','172.17.0.1:9092']
-</pre>
+```{{copy}}
 
 **NOTE** : Every Prometheus instance must have a globally unique set of identifying labels. These labels are important as they represent certain "stream" of data (e.g in the form of TSDB blocks). Within those exact external labels, the compactions and downsampling are performed, Querier filters its store APIs, further sharding option, deduplication, and potential multi-tenancy capabilities are available. Those are not easy to edit retroactively, so it's important to provide a compatible set of external labels as in order to for Thanos to aggregate data across all the available instances.
 

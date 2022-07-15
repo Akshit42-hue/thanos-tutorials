@@ -93,11 +93,11 @@ docker run -d --net=host --rm \
 
 Now, to check if sidecars are running well, let's modify Prometheus scrape configuration to include our added sidecars.
 
-As always click `Copy To Editor` for each config to propagate the configs to each file.
+As always Click on the box and it will get copied
 
 Note that only thanks to the sidecar, all those changes will be immediately reloaded and updated in Prometheus!
 
-<pre class="file" data-filename="prometheus0_eu1.yml" data-target="replace">
+```
 global:
   scrape_interval: 15s
   evaluation_interval: 15s
@@ -112,9 +112,9 @@ scrape_configs:
   - job_name: 'sidecar'
     static_configs:
       - targets: ['172.17.0.1:19090']
-</pre>
+```{{copy}}
 
-<pre class="file" data-filename="prometheus0_us1.yml" data-target="replace">
+```
 global:
   scrape_interval: 15s
   evaluation_interval: 15s
@@ -129,9 +129,9 @@ scrape_configs:
   - job_name: 'sidecar'
     static_configs:
       - targets: ['172.17.0.1:19091','172.17.0.1:19092']
-</pre>
+```{{copy}}
 
-<pre class="file" data-filename="prometheus1_us1.yml" data-target="replace">
+```
 global:
   scrape_interval: 15s
   evaluation_interval: 15s
@@ -146,7 +146,7 @@ scrape_configs:
   - job_name: 'sidecar'
     static_configs:
       - targets: ['172.17.0.1:19091','172.17.0.1:19092']
-</pre>
+```{{copy}}
 
 Now you should see new, updated configuration on each Prometheus. For example here in [Prometheus 0 EU1 /config]({{TRAFFIC_HOST1_9090}}/config).
 In the same time [`up`]({{TRAFFIC_HOST1_9090}}/graph?g0.expr=up&g0.tab=1) should show `job=sidecar` metrics.
