@@ -24,7 +24,7 @@ Now, we will prepare configuration files for all Prometheus instances.
 
 Click on the box and it will get copied
 
-Switch on to the Editor tab and make a prometheus0_eu1.yml file and paste the above code in it.
+Switch on to the Editor tab and make a `prometheus0_eu1.yml` file and paste the above code in it.
 
 First, for the EU Prometheus server that scrapes itself:
 
@@ -45,7 +45,7 @@ scrape_configs:
 
 For the second cluster we set two replicas:
 
-Make a prometheus0_us1.yml file and paste the above code in it.
+Make a `prometheus0_us1.yml` file and paste the above code in it.
 
 ```
 global:
@@ -62,7 +62,7 @@ scrape_configs:
 ```{{copy}}
 
 
-Make a prometheus1_us1.yml file and paste the above code in it.
+Make a `prometheus1_us1.yml` file and paste the above code in it.
 
 ```
 global:
