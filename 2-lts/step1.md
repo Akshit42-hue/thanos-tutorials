@@ -40,9 +40,10 @@ ls -lR /root/prom-eu1
 Here, we will prepare configuration files for the Prometheus instance that will run with our pre-generated data.
 It will also scrape our components we will use in this tutorial.
 
-Click `Copy To Editor` for config to propagate the configs to file.
+Click on the box and it will get copied for config to propagate the configs to file.
 
-<pre class="file" data-filename="prometheus0_eu1.yml" data-target="replace">
+Switch on to the Editor tab and make a `prometheus0_eu1.yml` file in editor folder and paste the above code in it.
+
 global:
   scrape_interval: 5s
   external_labels:
@@ -67,7 +68,6 @@ scrape_configs:
   - job_name: 'store_gateway'
     static_configs:
       - targets: ['172.17.0.1:19091']
-</pre>
 
 ## Starting Prometheus Instance
 

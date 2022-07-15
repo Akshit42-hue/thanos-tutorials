@@ -44,9 +44,9 @@ Enter the credentials as mentioned below:
 
 All Thanos components that use object storage uses the same `objstore.config` flag with the same "little" bucket config format.
 
-Click `Copy To Editor` for config to propagate the configs to the file `bucket_storage.yaml`:
+Switch on to the Editor tab and make a `bucket_storage.yaml` file in editor folder and paste the above code in it.
 
-<pre class="file" data-filename="bucket_storage.yaml" data-target="replace">
+```
 type: S3
 config:
   bucket: "thanos"
@@ -55,7 +55,7 @@ config:
   signature_version2: true
   access_key: "minio"
   secret_key: "melovethanos"
-</pre>
+```{{copy}}
 
 Let's restart sidecar with updated configuration in backup mode.
 
