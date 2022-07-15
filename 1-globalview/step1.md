@@ -27,9 +27,7 @@ Click `Copy To Editor` for each config to propagate the configs to each file.
 First, for the EU Prometheus server that scrapes itself:
 
 <pre class="file" data-filename="prometheus0_eu1.yml" data-target="replace">
-
-```
-global:
+```global:
   scrape_interval: 15s
   evaluation_interval: 15s
   external_labels:
@@ -38,8 +36,8 @@ global:
 scrape_configs:
   - job_name: 'prometheus'
     static_configs:`
-      - targets: ['172.17.0.1:9090']
-```{{copy}}
+      - targets: ['172.17.0.1:9090']```{{copy}}
+
 
 </pre>
 
