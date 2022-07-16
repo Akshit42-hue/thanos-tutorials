@@ -1,7 +1,3 @@
-
-
-> NOTE: Click `Copy To Editor` for each config to propagate the configs to each file.
-
 What if we can have one single point of entry in front of Queries instead of separate Queriers? And by doing so slice and dice our queries depend on the time and distribute them between queriers to balance the load? Moreover, why not cache these responses so that next time someone asks for the same time range we can just serve it from memory. Wouldn't it be faster?
 
 Yes, we can do all these using Thanos Query Frontend. Let's see how we can do it.

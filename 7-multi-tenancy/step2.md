@@ -63,7 +63,9 @@ let's deploy [Caddy](https://caddyserver.com/) server (kind of fancy nginx but w
 
 Let's create Caddy config file:
 
-<pre class="file" data-filename="Caddyfile" data-target="replace">
+In Editor tab and make a `Caddyfile` file in editor folder and paste the above code in it.
+
+```
 {
     admin off
 }
@@ -77,7 +79,7 @@ Let's create Caddy config file:
     rewrite * ?{query}&tenant=team-veggie
     reverse_proxy 172.17.0.1:39090
 }
-</pre>
+```{{copy}}
 
 And start our caddy server using that config:
 

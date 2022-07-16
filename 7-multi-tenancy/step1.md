@@ -1,6 +1,6 @@
 ## Scenario
 
-> NOTE: Click `Copy To Editor` for each config to propagate the configs to each file.
+> NOTE: Click on the box and it will get copied
 
 Let's imagine we have to deliver centralized metrics platform to two teams **Team Fruit** and **Team Veggie**.
 We don't want each team to see each other data or even know about their existence. Let's see how we achieve that with Thanos.
@@ -14,7 +14,9 @@ deploy Prometheuses with sidecars and Querier.
 
 First, Prometheus server for **Team Fruit** that scrapes itself:
 
-<pre class="file" data-filename="prometheus0_fruit.yml" data-target="replace">
+In Editor tab and make a `prometheus0_fruit.yml` file in editor folder and paste the above code in it.
+
+```
 global:
   scrape_interval: 5s
   external_labels:
@@ -26,11 +28,13 @@ scrape_configs:
   - job_name: 'prometheus'
     static_configs:
       - targets: ['172.17.0.1:9090']
-</pre>
+```{{copy}}
 
 For the **Team Veggie** we set second instance with two replicas (Veggies care for high availability - everyone should eat vegetables every day after all!):
 
-<pre class="file" data-filename="prometheus0_veggie.yml" data-target="replace">
+In Editor tab and make a `prometheus0_veggie.yml` file in editor folder and paste the above code in it.
+
+```
 global:
   scrape_interval: 5s
   external_labels:
@@ -42,9 +46,11 @@ scrape_configs:
   - job_name: 'prometheus'
     static_configs:
      - targets: ['172.17.0.1:9091','172.17.0.1:9092']
-</pre>
+```{{copy}}
 
-<pre class="file" data-filename="prometheus1_veggie.yml" data-target="replace">
+In Editor tab and make a `prometheus1_veggie.yml` file in editor folder and paste the above code in it.
+
+```
 global:
   scrape_interval: 5s
   external_labels:
@@ -56,7 +62,7 @@ scrape_configs:
   - job_name: 'prometheus'
     static_configs:
       - targets: ['172.17.0.1:9091','172.17.0.1:9092']
-</pre>
+```{{copy}}
 
 ### Prepare "persistent volumes"
 
