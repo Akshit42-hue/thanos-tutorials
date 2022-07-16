@@ -29,7 +29,7 @@ Let's use a very simple configuration file that tells prometheus agent to scrape
 
 Switch on to the Editor tab and make a `prom-agent-batmobile.yaml` file in editor folder and paste the above code in it.
 
-
+```
 global:
   scrape_interval: 5s
   external_labels:
