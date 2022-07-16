@@ -8,7 +8,9 @@ We need to tell `prometheus-batcave` & `prometheus-batcomputer` where to write t
 
 The docs for this configuration option can be found [here](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write).
 
-<pre class="file" data-filename="prometheus-batcave.yaml" data-target="replace">
+Update the config file `prometheus-batcave` & `prometheus-batcomputer`
+
+```
 global:
   scrape_interval: 5s
   external_labels:
@@ -21,9 +23,9 @@ scrape_configs:
       - targets: ['172.17.0.1:9090']
 remote_write:
 - url: 'http://172.17.0.1:10908/api/v1/receive'
-</pre>
+```{{copy}}
 
-<pre class="file" data-filename="prometheus-batcomputer.yaml" data-target="replace">
+```
 global:
   scrape_interval: 5s
   external_labels:
@@ -36,7 +38,7 @@ scrape_configs:
       - targets: ['172.17.0.1:9091']
 remote_write:
 - url: 'http://172.17.0.1:10908/api/v1/receive'
-</pre>
+'''{{copy}}
 
 ## Reload Configuration
 

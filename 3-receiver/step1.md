@@ -19,7 +19,9 @@ Firstly, let us setup two Prometheus instances...
 
 Let's use a very simple configuration file, that tells prometheus to scrape its own metrics page every 5 seconds.
 
-<pre class="file" data-filename="prometheus-batcave.yaml" data-target="replace">
+Switch on to the Editor tab and make a `prometheus-batcave.yaml` file in editor folder and paste the above code in it.
+
+```
 global:
   scrape_interval: 5s
   external_labels:
@@ -30,7 +32,7 @@ scrape_configs:
   - job_name: 'prometheus'
     static_configs:
       - targets: ['172.17.0.1:9090']
-</pre>
+```{{copy}}
 
 Run the prometheus instance:
 
@@ -63,7 +65,9 @@ Verify that `prometheus-batcave` is running by navigating to the [Batcave Promet
 
 Almost exactly the same configuration as above, except we run the Prometheus instance on port `9091`.
 
-<pre class="file" data-filename="prometheus-batcomputer.yaml" data-target="replace">
+Switch on to the Editor tab and make a `prometheus-batcomputer.yaml` file in editor folder and paste the above code in it.
+
+```
 global:
   scrape_interval: 5s
   external_labels:
@@ -74,7 +78,7 @@ scrape_configs:
   - job_name: 'prometheus'
     static_configs:
       - targets: ['172.17.0.1:9091']
-</pre>
+```{{copy}}
 
 ```
 docker run -d --net=host --rm \
