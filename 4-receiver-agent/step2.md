@@ -27,7 +27,9 @@ Let's try to deploy it to fulfil `batmobile` and `batcopter` monitoring requirem
 
 Let's use a very simple configuration file that tells prometheus agent to scrape its own metrics page every 5 seconds and forwards it's to our running `Thanos Receive`.
 
-<pre class="file" data-filename="prom-agent-batmobile.yaml" data-target="replace">
+Switch on to the Editor tab and make a `prom-agent-batmobile.yaml` file in editor folder and paste the above code in it.
+
+
 global:
   scrape_interval: 5s
   external_labels:
@@ -41,7 +43,7 @@ scrape_configs:
 
 remote_write:
 - url: 'http://172.17.0.1:10908/api/v1/receive'
-</pre>
+```{{copy}}
 
 Run the prometheus in agent mode:
 
@@ -68,7 +70,9 @@ You should see one target: Prometheus Agent on `batmobile` itself.
 
 Similarly, we can configure and deploy the second agent:
 
-<pre class="file" data-filename="prom-agent-batcopter.yaml" data-target="replace">
+Switch on to the Editor tab and make a `prom-agent-batcopter.yaml` file in editor folder and paste the above code in it.
+
+```
 global:
   scrape_interval: 5s
   external_labels:
@@ -82,7 +86,7 @@ scrape_configs:
 
 remote_write:
 - url: 'http://172.17.0.1:10908/api/v1/receive'
-</pre>
+```{{copy}}
 
 ```
 docker run -d --net=host --rm \
