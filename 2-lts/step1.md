@@ -44,6 +44,7 @@ Click on the box and it will get copied for config to propagate the configs to f
 
 Switch on to the Editor tab and make a `prometheus0_eu1.yml` file in editor folder and paste the above code in it.
 
+```
 global:
   scrape_interval: 5s
   external_labels:
@@ -54,20 +55,21 @@ global:
 scrape_configs:
   - job_name: 'prometheus'
     static_configs:
-      - targets: ['172.17.0.1:9090']
+      - targets: ['127.0.0.1:9090']
   - job_name: 'sidecar'
     static_configs:
-      - targets: ['172.17.0.1:19090']
+      - targets: ['127.0.0.1:19090']
   - job_name: 'minio'
     metrics_path: /minio/prometheus/metrics
     static_configs:
-      - targets: ['172.17.0.1:9000']
+      - targets: ['127.0.0.1:9000']
   - job_name: 'querier'
     static_configs:
-      - targets: ['172.17.0.1:9091']
+      - targets: ['127.0.0.1:9091']
   - job_name: 'store_gateway'
     static_configs:
-      - targets: ['172.17.0.1:19091']
+      - targets: ['127.0.0.1:19091']
+```{{copy}}
 
 ## Starting Prometheus Instance
 
