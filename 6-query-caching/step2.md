@@ -12,7 +12,9 @@ We are running this tutorial on a single machine in this setup, as a result it's
 
 For that let's setup a nginx instance:
 
-<pre class="file" data-filename="nginx.conf" data-target="replace">
+In Editor tab and make a `nginx.conf` file in editor folder and paste the above code in it.
+
+```
 server {
  listen 10902;
  server_name proxy;
@@ -27,7 +29,7 @@ server {
      proxy_pass http://172.17.0.1:10912;
  }
 }
-</pre>
+```{{copy}}
 
 ```
 docker run -d --net=host --rm \
@@ -48,13 +50,15 @@ docker ps
 
 First, let's create necessary cache configuration for Frontend:
 
-<pre class="file" data-filename="frontend.yml" data-target="replace">
+In Editor tab and make a `frontend.yml` file in editor folder and paste the above code in it.
+
+```
 type: IN-MEMORY
 config:
   max_size: "0"
   max_size_items: 2048
   validity: "6h"
-</pre>
+```{{copy}}
 
 And deploy Query Frontend:
 

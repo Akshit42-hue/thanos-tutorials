@@ -25,11 +25,13 @@ Let's deploy a couple of Prometheus instances and let them scrape themselves, so
 
 ### Prepare configuration
 
-Click `Copy To Editor` for each config to propagate the configs to each file.
+Click on the box and it will get copied
 
 First, Prometheus server that scrapes itself:
 
-<pre class="file" data-filename="prometheus0.yml" data-target="replace">
+Switch on to the Editor tab and make a `prometheus0.yml` file in editor folder and paste the above code in it.
+
+```
 global:
   scrape_interval: 5s
   external_labels:
@@ -40,9 +42,11 @@ scrape_configs:
   - job_name: 'prometheus'
     static_configs:
       - targets: ['172.17.0.1:9090']
-</pre>
+```{{copy}}
 
-<pre class="file" data-filename="prometheus1.yml" data-target="replace">
+In Editor tab and make a `prometheus1.yml` file in editor folder and paste the above code in it.
+
+```
 global:
   scrape_interval: 5s
   external_labels:
@@ -53,9 +57,11 @@ scrape_configs:
   - job_name: 'prometheus'
     static_configs:
       - targets: ['172.17.0.1:9091']
-</pre>
+```{{copy}}
 
-<pre class="file" data-filename="prometheus2.yml" data-target="replace">
+In Editor tab and make a `prometheus2.yml` file in editor folder and paste the above code in it.
+
+```
 global:
   scrape_interval: 5s
   external_labels:
@@ -66,7 +72,7 @@ scrape_configs:
   - job_name: 'prometheus'
     static_configs:
       - targets: ['172.17.0.1:9092']
-</pre>
+```{{copy}} 
 
 ### Deploy Prometheus
 
